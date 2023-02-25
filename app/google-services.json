@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "598049936278",
+    "project_id": "community-project-67135",
+    "storage_bucket": "community-project-67135.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:598049936278:android:38a99eefe6bb7aa90783b7",
+        "android_client_info": {
+          "package_name": "com.example.campusconnect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "598049936278-psvn82msiakk572dsvpj1878bfs8hafb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMjbhPN_FSXS007NUkXc9-5SoLFNUoWrk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "598049936278-psvn82msiakk572dsvpj1878bfs8hafb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:598049936278:android:1bcdb37eddfda2390783b7",
+        "android_client_info": {
+          "package_name": "com.feedbox.clubcommunity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "598049936278-psvn82msiakk572dsvpj1878bfs8hafb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMjbhPN_FSXS007NUkXc9-5SoLFNUoWrk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "598049936278-psvn82msiakk572dsvpj1878bfs8hafb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

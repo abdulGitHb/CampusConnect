@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">CampusConnectApp</string>
+
+    <string-array name="identity">
+        <item>--Select Identity--</item>
+        <item>Student</item>
+        <item>Faculty</item>
+    </string-array>
 </resources>
