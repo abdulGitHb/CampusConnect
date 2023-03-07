@@ -37,67 +37,122 @@
             android:gravity="right"
             android:orientation="vertical">
 
+<!--            <Spinner-->
+<!--                android:id="@+id/identity_spinner"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="48dp"-->
+<!--                android:layout_marginLeft="30dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginRight="30dp"-->
+<!--                android:entries="@array/identity"-->
+<!--                android:background="@drawable/rounded_edittext_corner"/>-->
 
             <Spinner
-                android:id="@+id/identity_spinner"
+                android:id="@+id/sa_collegename_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="30dp"
-                android:entries="@array/identity"
+                android:entries="@array/college_name"
                 android:background="@drawable/rounded_edittext_corner"/>
 
             <EditText
+                android:id="@+id/sa_et_full_name"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="30dp"
                 android:hint="Full Name"
+                android:inputType="text"
+                android:background="@drawable/rounded_edittext_corner"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" />
+
+            <EditText
+                android:id="@+id/sa_et_gmail"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:hint="E-mail"
+                android:inputType="textEmailAddress"
+                android:background="@drawable/rounded_edittext_corner"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" />
+
+            <EditText
+                android:id="@+id/sa_et_pass"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:hint="Password"
+                android:inputType="textPassword"
                 android:background="@drawable/rounded_edittext_corner"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp" />
             <EditText
+                android:id="@+id/sa_et_contact_no"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="30dp"
                 android:hint="Contact no."
+                android:inputType="number"
                 android:background="@drawable/rounded_edittext_corner"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp" />
-
-            <EditText
+            <Spinner
+                android:id="@+id/sa_year_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="30dp"
-                android:hint="Gmail"
-                android:background="@drawable/rounded_edittext_corner"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp" />
+                android:entries="@array/year"
+                android:background="@drawable/rounded_edittext_corner" />
 
             <EditText
+                android:id="@+id/sa_et_branch"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="30dp"
-                android:hint="Password"
+                android:hint="Branch/Stream"
+                android:inputType="text"
                 android:background="@drawable/rounded_edittext_corner"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp" />
 
+            <TextView
+                android:id="@+id/sa_tv_select_skill"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="30dp"
+                android:text="Select Skill"
+                android:textSize="20dp"
+                android:paddingTop="5dp"
+                android:paddingStart="5dp"
+                android:drawableRight="@drawable/down_arrow"
+                android:background="@drawable/rounded_edittext_corner"
+                />
             <Button
+                android:id="@+id/sa_btn_signup"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:text="Sign Up"
                 android:backgroundTint="#62cffe"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="30dp"/>
+                android:layout_marginTop="30dp"
+                android:background="@drawable/rounded_edittext_corner"/>
 
             <TextView
                 android:id="@+id/btn_to_login"
@@ -105,7 +160,13 @@
                 android:layout_height="wrap_content"
                 android:text="Already have an account? Click here to Login!"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp" />
+
+            <ProgressBar
+                android:id="@+id/sa_progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
 
         </LinearLayout>
     </ScrollView>
