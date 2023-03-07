@@ -1,11 +1,30 @@
 <resources>
     <string name="app_name">CampusConnectApp</string>
 
+<!--    Selecting the identity for registration  -->
     <string-array name="identity">
         <item>--Select Identity--</item>
         <item>Student</item>
         <item>Faculty</item>
     </string-array>
+
+    <string-array name="year">
+        <item>--Select year--</item>
+        <item>1st year</item>
+        <item>2nd year</item>
+        <item>3rd year</item>
+        <item>4th year</item>
+    </string-array>
+
+    <string-array name="college_name">
+        <item>--Select College--</item>
+        <item>IET-DAVV</item>
+        <item>IIPS-DAVV</item>
+        <item>IMS-DAVV</item>
+        <item>Shri Vaishnav</item>
+        <item>Acropolish</item>
+    </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

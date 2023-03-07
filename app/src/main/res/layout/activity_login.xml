@@ -38,7 +38,8 @@
             android:layout_marginRight="30dp"
             android:hint="Gmail"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp" />
+            android:paddingRight="10dp"
+            android:background="@drawable/rounded_edittext_corner"/>
 
         <EditText
             android:id="@+id/et_login_password"
@@ -49,7 +50,8 @@
             android:layout_marginRight="30dp"
             android:hint="Password"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp" />
+            android:paddingRight="10dp"
+            android:background="@drawable/rounded_edittext_corner"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -74,6 +76,11 @@
             android:text="Don't have an account? Click here to Register!"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"/>
+        <ProgressBar
+            android:id="@+id/la_prgress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
 
     </LinearLayout>
 

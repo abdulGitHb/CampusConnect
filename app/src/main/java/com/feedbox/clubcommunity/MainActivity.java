@@ -11,8 +11,10 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.feedbox.clubcommunity.fragments.CalendarFragment;
 import com.feedbox.clubcommunity.fragments.HomeFragment;
 import com.feedbox.clubcommunity.fragments.ProfileFragment;
+import com.feedbox.clubcommunity.fragments.ResourcesFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -39,13 +41,13 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 fragment = new HomeFragment();
               break;
             case R.id.bn_btn_calendar:
-                Toast.makeText(this, "Calendar clicked", Toast.LENGTH_SHORT).show();
+                fragment = new CalendarFragment();
               break;
             case R.id.bn_btn_additem:
                 Toast.makeText(this, "Add Item clicked", Toast.LENGTH_SHORT).show();
               break;
             case R.id.bn_btn_resources:
-                Toast.makeText(this, "Resources clicked", Toast.LENGTH_SHORT).show();
+                fragment= new ResourcesFragment();
               break;
             case R.id.bn_btn_profile:
                 fragment= new ProfileFragment();

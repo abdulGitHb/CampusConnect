@@ -1,5 +1,6 @@
 package com.feedbox.clubcommunity.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,7 +11,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.feedbox.clubcommunity.LoginActivity;
 import com.feedbox.clubcommunity.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class ProfileFragment extends Fragment {
     Button pf_btn_click;
@@ -28,7 +31,9 @@ public class ProfileFragment extends Fragment {
         pf_btn_click= view.findViewById(R.id.pf_btn_click);
 
         pf_btn_click.setOnClickListener(view1->{
-            Toast.makeText(getContext(), "Profile Fragment", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Logging you out..., please wait", Toast.LENGTH_SHORT).show();
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(getActivity(), LoginActivity.class));
         });
 
 

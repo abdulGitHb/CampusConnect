@@ -22,7 +22,7 @@
             android:id="@+id/pf_btn_click"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Click Here"
+            android:text="LOG OUT"
             android:layout_gravity="center"/>
     </LinearLayout>
 
