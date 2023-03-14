@@ -8,6 +8,7 @@
     tools:context=".LoginActivity">
 
     <TextView
+        android:id="@+id/heading_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login"
@@ -54,6 +55,7 @@
             android:background="@drawable/rounded_edittext_corner"/>
 
         <TextView
+            android:id="@+id/la_tv_forgot_pass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Forgot Password!"

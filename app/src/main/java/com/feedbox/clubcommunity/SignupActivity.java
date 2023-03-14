@@ -36,16 +36,19 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -64,9 +67,11 @@ public class SignupActivity extends AppCompatActivity{
     FirebaseAuth userCreation;
 
     boolean[] selectedSkill;
-    ArrayList<Integer> skillList = new ArrayList<>();
+    ArrayList<String> skillList = new ArrayList<>();
+
     String[] skillArray = {"Web Development","App Development","SEO","Linkedin Optimization","Graphic Design",
             "Video Editing","Time Management","Digital Marketing","Content Writing","Ads"};
+    private RequestQueue rq;
 
 
     @Override
@@ -114,70 +119,104 @@ public class SignupActivity extends AppCompatActivity{
 //        sa_btn_signup.setOnClickListener(view -> registerNewUser());
 
         RequestQueue rq = Volley.newRequestQueue(this);
-        String url= "http://192.168.29.82:8000/register";
+        String url= "http://192.168.1.33:8000/register";
         rq.start();
-        sa_btn_signup.setOnClickListener(view -> {
-//            name, email, password, college, branch, year, phone, skills
-
-        });
+        sa_btn_signup.setOnClickListener(view -> newPostDataJson());
 
     }
 
-    private void postData() {
-// name, email, password, college, branch, year, phone, String[] skills
-        String name= sa_et_full_name.getText().toString();
-        String contact= sa_et_contact_no.getText().toString();
-        String gmail= sa_et_gmail.getText().toString();
-        String pass= sa_et_pass.getText().toString();
-        RequestQueue rq;
 
-        String url = "http://192.168.29.82:8000/register";
+    // -------------   this one is working fine, sending all type of data to the backend(using it). -------------------
+    private void newPostDataJson() {
+        String url= "http://192.168.1.33:8000/register";
 
-
-         JsonObjectRequest jsonObjectRequest= new JsonObjectRequest(
-                 Request.Method.POST, url, null,
-                response -> {
-                    try {
-                        JSONObject jsonObject= new JSONObject((Map) response);
-
-                        String testName = jsonObject.getString("name");
-                        String testEmail = jsonObject.getString("email");
-                        String testPass = jsonObject.getString("password");
-
-                        heading_signup.setText(" email:"+testEmail+" pass:"+testPass);
-
-                    } catch (JSONException e) {
-                        Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-
-                },
+        JsonObjectRequest jsonRequest= new JsonObjectRequest(
+                Request.Method.POST, url, null,
+                response -> heading_signup.setText(response.toString()),
                 error -> Toast.makeText(this, "Error: "+error.getMessage(), Toast.LENGTH_SHORT).show()){
+
             @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params= new HashMap<>();
-                String[] skilll= {"photoshop", "Illustrator", "etc"};
-//                name, email, password, phone, college,skills
-                params.put("name", "name");
-                params.put("email", "gmail");
-                params.put("password", "pass");
-                params.put("phone", "contact");
+            public byte[] getBody() {
+                JSONObject jsonObject = new JSONObject();
+                String body = null;
+                String[] skillz= {"App", "Web"};
+                try
+                {
+//                  name, email, password, phone, college,skills
+                    jsonObject.put("name", sa_et_full_name.getText().toString());
+                    jsonObject.put("email", sa_et_gmail.getText().toString());
+                    jsonObject.put("password", sa_et_pass.getText().toString());
+                    jsonObject.put("phone", sa_et_contact_no.getText().toString());
+                    jsonObject.put("college", collegeName);
+                    jsonObject.put("skills", new JSONArray(skillList));
 
+                    body = jsonObject.toString();
+                } catch (JSONException e)
+                {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
 
-                return params;
+                try
+                {
+                    return body.toString().getBytes("utf-8");
+                } catch (UnsupportedEncodingException e)
+                {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                return null;
             }
-             @Override
-             public Map getHeaders()
-             {
-                 HashMap headers = new HashMap();
-                 headers.put("Content-Type", "application/json");
-                 return headers;
-             }
+            @Override
+            public Map getHeaders()
+            {
+                HashMap headers = new HashMap();
+                headers.put("Content-Type", "application/json");
+                return headers;
+            }
         };
         RequestQueue requestQueue= Volley.newRequestQueue(SignupActivity.this);
-        requestQueue.add(jsonObjectRequest);
-
+        requestQueue.add(jsonRequest);
 
     }
+
+// -------------   this one is working fine for single type of data, sending data to the backend(but not using it). -------------------
+//    private void newPostData() {
+//        String url= "http://192.168.1.33:8000/register";
+//        StringRequest sr = new StringRequest(Request.Method.POST,
+//                url,
+//                response -> {
+//                    heading_signup.setText(response.toString());
+//                    Toast.makeText(this, "response received", Toast.LENGTH_SHORT).show();
+//                },
+//                error -> Toast.makeText(this, error.getMessage(), Toast.LENGTH_LONG).show()){
+//
+//            @Override
+//            protected Map<String, String> getParams() throws AuthFailureError{
+////                name,email,password,phone, college, skills
+//                Map<String, String> params= new HashMap<>();
+//                params.put("name", "abdul");
+//                params.put("email", "test1@gmail.com");
+//                params.put("password", "12345");
+//                params.put("collegeName", "IET-DAVV");
+////                params.put("branch", "8989585856");
+////                params.put("phone", sa_et_contact_no.getText().toString());
+//                params.put("branch", "CS-A");
+////                params.put("year", "4th year");
+//
+//                return params;
+//            }
+//            @Override
+//            public Map<String, String> getHeaders() throws AuthFailureError {
+//                Map<String,String> params = new HashMap<>();
+//                params.put("Content-Type","application/x-www-form-urlencoded");
+//                return params;
+//            }
+//        };
+//        rq= Volley.newRequestQueue(this);
+//        rq.add(sr);
+//    }
+
 
     // method for selecting skill using multi-select spinner
     private void selectSkill() {
@@ -189,7 +228,7 @@ public class SignupActivity extends AppCompatActivity{
             @Override
             public void onClick(DialogInterface dialogInterface, int i, boolean b) {
                 if(b){
-                    skillList.add(i);
+                    skillList.add(skillArray[i]);
                     Collections.sort(skillList);
                 }else{
                     skillList.remove(Integer.valueOf(i));
@@ -199,15 +238,7 @@ public class SignupActivity extends AppCompatActivity{
 
         // this will set the positive button on the dialog
         builder.setPositiveButton("OK", (dialogInterface, i) -> {
-            StringBuilder stringBuilder = new StringBuilder();
-            for (int j = 0; j < skillList.size(); j++) {
-                stringBuilder.append(skillArray[skillList.get(j)]);
-
-                if(j != skillList.size()-1){
-                    stringBuilder.append(",");
-                }
-            }
-            sa_tv_select_skill.setText(stringBuilder.toString());
+            sa_tv_select_skill.setText(skillList.toString());
         });
 
         // this will set the negative button on the dialog
