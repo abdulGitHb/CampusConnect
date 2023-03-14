@@ -3,10 +3,10 @@ package com.feedbox.clubcommunity.modals;
 public class RegisterUser {
 
     String name, email, password, college, branch,year, phone;
-    String[] Skills;
+//    String[] Skills;
 //    name, email, password, college, branch, year, phone, skills
 
-    public RegisterUser(String name, String email, String password, String college, String branch, String year, String phone, String[] skills) {
+    public RegisterUser(String name, String email, String password, String college, String branch, String year, String phone) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -14,7 +14,7 @@ public class RegisterUser {
         this.branch = branch;
         this.year = year;
         this.phone = phone;
-        Skills = skills;
+//        Skills = skills;
     }
 
     public String getName() {
@@ -73,12 +73,12 @@ public class RegisterUser {
         this.phone = phone;
     }
 
-    public String[] getSkills() {
-        return Skills;
-    }
-
-    public void setSkills(String[] skills) {
-        Skills = skills;
-    }
+//    public String[] getSkills() {
+//        return Skills;
+//    }
+//
+//    public void setSkills(String[] skills) {
+//        Skills = skills;
+//    }
 
 }
